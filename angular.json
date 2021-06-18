@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "c7a4957c-6f8f-4943-bb91-c758f87d427a"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -27,9 +30,17 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.css",
+              "node_modules/admin-lte/plugins/fontawesome-free/css/all.min.css",
+              "node_modules/admin-lte/dist/css/adminlte.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/admin-lte/plugins/jquery/jquery.min.js",
+              "node_modules/admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js",
+              "node_modules/admin-lte/dist/js/adminlte.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -94,6 +105,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []

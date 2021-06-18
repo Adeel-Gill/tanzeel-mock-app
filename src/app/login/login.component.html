@@ -1,0 +1,36 @@
+<div class="container col-sm-6 pt-5">
+    <h1 class="mb-3">Login User</h1>
+    <div *ngIf="close" class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Congratulations!</strong> You have Sucessfully Login.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span (click)="closeAlert()" aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" name="email" id="exampleInputEmail1" 
+            aria-describedby="emailHelp" ngModel #Email="ngModel" required email>
+            <span *ngIf="Email?.invalid && Email?.touched" style="color: red;">
+                This Email is not valid
+            </span>
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" name="password" id="exampleInputPassword1"
+            ngModel #Password="ngModel" minlength="8" maxlength="8" required>
+            <span *ngIf="Password?.invalid && Password?.touched" style="color: red;">
+                This field is required
+            </span>
+          </div>
+          <div class="row justify-content-between px-1">
+      <button type="submit" class="btn btn-primary mb-3 " [disabled]="myForm?.invalid" (click)="showAlert()">
+        Login
+      </button>
+      <button type="submit" class="btn btn-primary mb-3" routerLink="/signup">
+        SignUp
+      </button>
+    </div>
+    </form>
+  </div>

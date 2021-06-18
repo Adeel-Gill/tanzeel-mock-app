@@ -1,0 +1,51 @@
+<div class="container col-sm-6">
+    <h1 class="pt-3">SignUp User</h1>
+    <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+      <div class="mb-3">
+        <label for="exampleInputname1" class="form-label">Full Name</label>
+        <input type="text" name="name" id="exampleInputname1" class="form-control"
+          ngModel #name="ngModel" required>
+          <span *ngIf="name?.invalid && name?.touched" style="color: red;">
+              This field is required
+          </span>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputemail1" class="form-label">Email address</label>
+        <input type="email" class="form-control" name="email" id="exampleInputemail1" 
+        aria-describedby="emailHelp" ngModel #email="ngModel" required email>
+        <span *ngIf="email?.invalid && email?.touched" style="color: red;">
+            This Email is not valid
+        </span>
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputprofilePicture1" class="form-label">Profile Picture</label>
+        <input type="text" class="form-control" name="profilePicture" id="exampleInputProfilePicture1"
+        ngModel #profilePicture="ngModel" required>
+        <span *ngIf="profilePicture?.invalid && profilePicture?.touched" style="color: red;">
+            This field is required
+        </span>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputtoken1" class="form-label">Token</label>
+        <input type="text" class="form-control" name="token" id="exampleInputtoken1"
+        ngModel #token="ngModel" required>
+        <span *ngIf="token?.invalid && token?.touched" style="color: red;">
+            This field is required
+        </span>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" name="password" id="exampleInputPassword1"
+        ngModel #Password="ngModel" required minlength="8" maxlength="8">
+        <span *ngIf="Password?.invalid && Password?.touched" style="color: red;">
+            This field is required
+        </span>
+      </div>
+      <div class="row justify-content-between px-1">
+      <button [disabled]="myForm?.invalid" type="submit" class="btn btn-primary">SignUp</button>
+      <button type="submit" class="btn btn-primary" routerLink="/login">Login</button>
+      </div>
+    </form>
+  </div>
+  <router-outlet></router-outlet>
